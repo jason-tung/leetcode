@@ -1,4 +1,4 @@
-#https://leetcode.com/problems/roman-to-integer/description/
+#https://leetcode.com/problems/roman-to-integer/
 class Solution:
     d = {
             'I':             1,
