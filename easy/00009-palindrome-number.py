@@ -1,5 +1,6 @@
 #https://leetcode.com/problems/palindrome-number/
 class Solution:
+    #test tests 2
     def isPalindrome(self, x: int) -> bool:
         if x == 0:
             return True
@@ -14,4 +15,3 @@ class Solution:
         if digits % 2:
             x //= 10
         return build == x
-    #test
