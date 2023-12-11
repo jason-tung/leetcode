@@ -14,3 +14,4 @@ class Solution:
         if digits % 2:
             x //= 10
         return build == x
+    #test
