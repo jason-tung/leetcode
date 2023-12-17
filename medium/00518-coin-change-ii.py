@@ -1,21 +1,26 @@
-#https://leetcode.com/problems/coin-change-ii/description/
+#https://leetcode.com/problems/coin-change-ii/submissions/
+# let n be coins, m is current iteration of array
+# opt(n,m) = last coin must either be accessible from an m index-coin or not.
+# opt(n-coins[m], m) (using m-indexed coins)
+# plus 
+# opt(n, m-1) (no m-index coins)
+# edgecases: off the array -> 0
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
-        # first do with o(nm) memory
-        table = [[0] * (amount + 1)]*len(coins)
-        for m in range(len(table)):
-            for n in range(len(table[m])):
+        # do with o(n) memory - replace table calls using m with high low
+        table = [[0] * (amount + 1)]*2
+        low, high = 0, 1
+        for m in range(len(coins)):
+            for n in range(len(table[0])):
                 r = 0
                 # print(m,n)
                 # first column shouldn't add from right
                 if n != 0:
                     if n-coins[m] >= 0:
-                        r += table[m][n - coins[m]]
+                        r += table[high][n - coins[m]]
                     # first row shouldn't add from row below it
                     if m != 0:
-                        r += table[m-1][n]
-                    table[m][n] = r
+                        r += table[low][n]
+                    table[high][n] = r
                 else:
-                    table[m][n] = 1
-        return table[-1][-1]
-                
+                    table[high][n] = 1
