@@ -17,8 +17,5 @@ class Solution:
                     table[m][n] = r
                 else:
                     table[m][n] = 1
-        # print(table)
         return table[-1][-1]
                 
-# edgecases: off the array -> 0
-# opt(n, m-1) (no m-index coins)
