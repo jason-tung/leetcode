@@ -8,19 +8,13 @@
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
         # do with o(n) memory - replace table calls using m with high low
-        table = [[0] * (amount + 1)]*2
-        low, high = 0, 1
+        table = [0] * (amount + 1)
         for m in range(len(coins)):
-            for n in range(len(table[0])):
-                r = 0
-                # print(m,n)
-                # first column shouldn't add from right
+            for n in range(amount+1):
                 if n != 0:
                     if n-coins[m] >= 0:
-                        r += table[high][n - coins[m]]
-                    # first row shouldn't add from row below it
-                    if m != 0:
-                        r += table[low][n]
-                    table[high][n] = r
+                        table[n] += table[n - coins[m]]
                 else:
-                    table[high][n] = 1
+                    table[n] = 1
+        return table[-1]
+                
