@@ -12,7 +12,7 @@ class Solution:
         r = []
         cur = root
         stack = [root]
-        # groot optimization 
+        # groot optimization - only append useful nodes
         while cur or len(stack) > 0:
             if cur and cur.left:
                 stack.append(cur.left)
