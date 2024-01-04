@@ -12,20 +12,29 @@ class Solution:
         r = []
         stack = [root]
         cur = root
+        # None has an issue with non-existing nodes haha
         prev = TreeNode(val=-1)
         while cur or len(stack) > 0:
-            # print(cur)
-            # print([k.val for k in stack])
-            # print(r)
-            # print("prev", prev)
             # check we neither kid was backtracked
             if cur and cur.left and cur.left != prev and cur.right != prev:
-                # print("proc")
                 stack.append(cur.left)
                 cur = cur.left
             else:
-                # print("proc2")
-                # add a check because we need to visit the node twice - once to 
-traverse the right tree and once to pop the value off
-                # checkc but dont pop off because we will need to go back to it
+                # add a check because we need to visit the node twice - once to # traverse the right tree 
+and once to pop the value off
                 if len(stack) > 0:
+                    backtrack = stack[-1]
+                    if backtrack.right and backtrack.right != prev:
+                        cur = backtrack.right
+                        stack.append(cur)
+                    elif cur == None:
+                        cur = backtrack
+                    else:
+                        r.append(cur.val)
+                        prev = cur
+                        stack.pop()
+                        cur = None
+                else:
+                    r.append(cur.val)
+                    return r
+        return r
