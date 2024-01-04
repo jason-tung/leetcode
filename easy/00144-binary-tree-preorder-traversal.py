@@ -17,11 +17,11 @@ class Solution:
             if cur and cur.left:
                 stack.append(cur.left)
                 cur = cur.left
-                r.append(cur.val)
             else:
                 last = stack.pop()
                 cur = last.right
                 if cur:
                     stack.append(cur)
-                    r.append(cur.val)
+            if cur:
+                r.append(cur.val)
         return r
