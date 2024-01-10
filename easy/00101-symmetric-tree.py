@@ -5,7 +5,6 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-   
 def isSymEqual(l,r):
     if not l and not r:
         return True
