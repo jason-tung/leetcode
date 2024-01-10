@@ -5,6 +5,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+# what th
 def isSymEqual(l,r):
     if not l and not r:
         return True
@@ -18,4 +19,3 @@ class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
         return isSymEqual(root, root)
             
-# hi
