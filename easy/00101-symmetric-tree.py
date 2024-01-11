@@ -5,7 +5,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-# what fds
+# what 
 def isSymEqual(l,r):
     if not l and not r:
         return True
