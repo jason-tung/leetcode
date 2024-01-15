@@ -12,3 +12,13 @@ class Solution:
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
+        while stack:
+            cur = stack.pop()
+            node, val = cur[0], cur[1]
+            if not node:
+                m = max(val, m)
+            else:
+                stack.append((node.left, val + 1))
+                stack.append((node.right, val + 1))
+        return m
+            
