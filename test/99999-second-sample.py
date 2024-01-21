@@ -1,7 +1,7 @@
 # http://jasontung.me:3001
 
         # this is a sample code
-        # random number here: 0.03815355323725278
+        # random number here: 0.7123609241248912
         def main():
           print("hello wrld")
         
