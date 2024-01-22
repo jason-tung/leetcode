@@ -11,3 +11,19 @@ class Solution:
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
+            return None
+        while a.next:
+            a = a.next
+        a.next = headA
+        slow = fast = b
+        r = None
+        while slow and fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                r = slow
+                break
+        
+        while r and headB != r:
+            headB = headB.next
+            r = r.next
