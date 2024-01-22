@@ -1,16 +1,15 @@
 # https://leetcode.com/problems/intersection-of-two-linked-lists/
-        # turn it into a cycle detection problem by connecting end to head of A
-        a,b = headA,headB
-        if not a or not b:
-#         self.val = x
-#         self.next = None
-class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional
-[ListNode]:
 # clever cycle detection
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        # turn it into a cycle detection problem by connecting end to head of A
+        a,b = headA,headB
+        if not a or not b:
             return None
         while a.next:
             a = a.next
@@ -27,3 +26,8 @@ class Solution:
         while r and headB != r:
             headB = headB.next
             r = r.next
+        a.next = None
+        return r
+            
+            
+        
