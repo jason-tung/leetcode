@@ -1,14 +1,17 @@
 # https://leetcode.com/problems/isomorphic-strings/
-        if c not in d:
-            d[c] = len(d)
+        d = {}
+        codomain = set()
+        for i in range(len(s)):
+            if s[i] not in d:
+                d[s[i]] = t[i]
+            elif d[s[i]] != t[i]:
+                    return False
+                if t[i] in codomain:
+            codomain.add(t[i])
+                    return False
+# using definition of bijection
 class Solution:
-        l.append(d[c])
-    return l
-def eq(a,b):
-    return len(a) == len(b) and all([a[i] == b[i] for i in range(len(a))])
     def isIsomorphic(self, s: str, t: str) -> bool:
-        return eq(toIdentity(s),toIdentity(t))
-def toIdentity(s):
-    l = []
-    d = {}
-    for c in s:
+            # surjection
+            # injection
+        return len(s) == len(t)
