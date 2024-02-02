@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/majority-element-ii/
 # linear opt
+class Solution:
     def majorityElement(self, nums: List[int]) -> List[int]:
         c1 = c2 = None
         ct1 = ct2 = 0
@@ -27,5 +28,4 @@
             o.append(c1)
         if ct2 > len(nums)//3:
             o.append(c2)
-class Solution:
         return o
