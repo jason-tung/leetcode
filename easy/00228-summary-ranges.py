@@ -1,17 +1,4 @@
 # https://leetcode.com/problems/summary-ranges/
-                    output.append(str(marker))
-                marker = num
-            last = num
-                else:
-                    output.append(f"{marker}->{last}")
-                if marker != last:
-            elif num > last + 1:
-                marker = num
-            if marker == None:
-        if marker != last:
-            output.append(f"{marker}->{last}")
-        else:
-            output.append(str(marker))
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
         output = []
@@ -20,4 +7,17 @@ class Solution:
         marker, last = None, None
         for i in range(len(nums)):
             num = nums[i]
+            if marker == None:
+                marker = num
+            elif num > last + 1:
+                if marker != last:
+                    output.append(f"{marker}->{last}")
+                else:
+                    output.append(str(marker))
+                marker = num
+            last = num
+        if marker != last:
+            output.append(f"{marker}->{last}")
+        else:
+            output.append(str(marker))
         return output
