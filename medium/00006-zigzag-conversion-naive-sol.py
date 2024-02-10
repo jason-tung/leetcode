@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/zigzag-conversion/
 #naive sol
+class Solution:
     # try to convert indicies with function after
     def convert(self, s: str, numRows: int) -> str:
         # naive sol
@@ -23,5 +24,4 @@
             m[r][c] = s[i]
         # for k in range(numRows):
         #     print(m[k])
-class Solution:
         return ''.join([j for k in m for j in k])
