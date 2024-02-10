@@ -1,21 +1,21 @@
 # https://leetcode.com/problems/palindrome-linked-list/
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# first with unoptimized memory then opt mem
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        l = 0
+        t = head
+        s = []
+        while t:
+            l += 1
             t = t.next
         med = l // 2
         for _ in range(med):
-            l += 1
             s.append(head.val)
-        while t:
-        t = head
-        s = []
-        l = 0
-    def isPalindrome(self, head: Optional[ListNode]) -> bool:
-# first with unoptimized memory then opt mem
-class Solution:
-#         self.next = next
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-# Definition for singly-linked list.
-# class ListNode:
             head = head.next
         if l % 2:
             head = head.next
