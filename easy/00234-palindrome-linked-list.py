@@ -2,7 +2,6 @@
             l += 1
             t = t.next
         med = l // 2
-        for _ in range(med):
         while t:
         t = head
         l = 0
@@ -15,6 +14,7 @@
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         last = None
+        for _ in range(med):
             temp = head.next
             head.next=last
             last = head
