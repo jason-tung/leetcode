@@ -20,7 +20,7 @@ class Solution:
                         end -= 1
                     else:
                         start += 1
-················else:
+                else:
                     if curdiff == 0:
                         return target
                     localdiff = curdiff
