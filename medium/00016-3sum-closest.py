@@ -1,4 +1,9 @@
 # https://leetcode.com/problems/3sum-closest/
+class Solution:
+    def threeSumClosest(self, nums: List[int], target: int) -> int:
+        mindiff = float(inf)
+        # good to think about why you need to sort and
+        # cant use a hashmap in the twosum
         nums.sort()
         # skip dupes
         i = 0
@@ -15,7 +20,7 @@
                         end -= 1
                     else:
                         start += 1
-                else:
+················else:
                     if curdiff == 0:
                         return target
                     localdiff = curdiff
