@@ -1,7 +1,5 @@
 # https://leetcode.com/problems/valid-word-abbreviation/
 class Solution:
-    # hello
-    # h3o
     def validWordAbbreviation(self, word: str, abbr: str) -> bool:
         i = j = 0
         while i < len(word) and j < len(abbr):
@@ -18,9 +16,4 @@ class Solution:
                     digits += abbr[j]
                     j += 1
                 i += int(digits)
-                if i < len(word) and j < len(abbr):
-                    if word[i] != abbr[j]:
-                        return False
-                elif i != len(word) or j != len(abbr):
-                    return False
         return i == len(word) and j == len(abbr)
