@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/binary-tree-vertical-order-traversal/
 # queue
+# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
@@ -20,4 +21,3 @@ class Solution:
             if node.right:
                 queue.appendleft((node.right, col+1))
         return [depths[k] for k in sorted(depths)]
-# Definition for a binary tree node.
