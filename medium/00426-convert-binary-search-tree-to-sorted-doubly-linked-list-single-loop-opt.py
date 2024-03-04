@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/
 #single loop opt
+"""
 # Definition for a Node.
 class Node:
     def __init__(self, val, left=None, right=None):
@@ -29,4 +30,3 @@ class Solution:
         if sol[1]:
             sol[1].right = sol[0]
         return sol[0]
-"""
