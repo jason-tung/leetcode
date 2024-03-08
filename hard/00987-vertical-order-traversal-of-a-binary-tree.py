@@ -12,20 +12,11 @@ class Solution:
         while len(queue):
             [root, depth, col] = queue.pop()
             if col not in d:
-                d[col] = {}
-            if depth not in d[col]:
-                d[col][depth] = []
-            heapq.heappush(d[col][depth], root.val)
+                d[col] = []
+            d[col].append((depth, root.val))
             if root.left:
                 queue.appendleft((root.left, depth + 1, col-1))
             if root.right:
                 queue.appendleft((root.right, depth + 1, col+1))
-        ret = []
-        for col in sorted(d.keys()):
-            r = []
-            for row in sorted(d[col].keys()):
-                while len(d[col][row]):
-                    r.append(heapq.heappop(d[col][row]))
-            ret.append(r)
-        return ret
+        return [[k[1] for k in sublist] for sublist in [sorted(d[key]) for key in sorted(d.keys())]]
         
