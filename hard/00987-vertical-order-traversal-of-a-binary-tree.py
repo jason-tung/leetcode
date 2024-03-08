@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
+# 
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -8,24 +9,18 @@
 class Solution:
     def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
         d = {}
-        queue = deque([(root, 0, 0)])
+        queue = [(0, 0, root.val, 0, root)]
+        uuid = 1
         while len(queue):
-            [root, depth, col] = queue.pop()
+            [depth, col, val, _, root] = heapq.heappop(queue)
             if col not in d:
-                d[col] = {}
-            if depth not in d[col]:
-                d[col][depth] = []
-            heapq.heappush(d[col][depth], root.val)
+                d[col] = []
+            d[col].append(val)
             if root.left:
-                queue.appendleft((root.left, depth + 1, col-1))
+                heapq.heappush(queue, (depth+1, col-1,  root.left.val, uuid, root.left))
+                uuid += 1
             if root.right:
-                queue.appendleft((root.right, depth + 1, col+1))
-        ret = []
-        for col in sorted(d.keys()):
-            r = []
-            for row in sorted(d[col].keys()):
-                while len(d[col][row]):
-                    r.append(heapq.heappop(d[col][row]))
-            ret.append(r)
-        return ret
+                heapq.heappush(queue, (depth+1, col+1, root.right.val, uuid, root.right))
+                uuid += 1
+        return [d[key] for key in sorted(d.keys())]
         
