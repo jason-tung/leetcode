@@ -11,15 +11,13 @@ class Solution:
         if not root:
             return []
         queue, depths = deque([(root, 0)]), {}
-        mini,maxi = 0, 0
         while len(queue) > 0:
             [node, col] = queue.pop()
             if col not in depths:
                 depths[col] = []
             depths[col].append(node.val)
-            mini, maxi = min(col, mini), max(col, maxi)
             if node.left:
                 queue.appendleft((node.left, col-1))
             if node.right:
                 queue.appendleft((node.right, col+1))
-        return [depths[i] for i in range(mini, maxi+1)]
+        return [depths[i] for i in sorted(depths.keys())]
