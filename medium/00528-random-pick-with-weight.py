@@ -1,5 +1,4 @@
 # https://leetcode.com/problems/random-pick-with-weight/
-# using binary search
 class Solution:
     def __init__(self, w: List[int]):
         weight = sum(w)
@@ -15,10 +14,11 @@ class Solution:
             med = (l + r) // 2
             if rand <= self.w_val[med] and (med == 0 or rand > self.w_val[med - 1]):
                 return med
-            if rand <= self.w_val[med]:
+            if rand < self.w_val[med]:
                 r = med
             else:
                 l = med + 1
+        
 # Your Solution object will be instantiated and called as such:
 # obj = Solution(w)
 # param_1 = obj.pickIndex()
