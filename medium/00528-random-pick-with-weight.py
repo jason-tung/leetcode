@@ -15,7 +15,7 @@ class Solution:
             if rand <= self.w_val[med] and (med == 0 or rand > self.w_val[med - 1]):
                 return med
             if rand < self.w_val[med]:
-                r = med
+                r = med -1 
             else:
                 l = med + 1
         
