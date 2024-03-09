@@ -11,9 +11,9 @@ class Solution:
             return 0
         ret = root.val if root.val >= low and root.val <= high else 0
         if root.left or root.right:
-            if root.left:
+            if root.left and root.val >= low:
                 ret += self.rangeSumBST(root.left, low, high)
-            if root.right:
+            if root.right and root.val <= high:
                 ret += self.rangeSumBST(root.right, low, high)
         return ret
         
