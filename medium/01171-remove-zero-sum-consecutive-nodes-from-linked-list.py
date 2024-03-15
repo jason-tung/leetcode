@@ -6,11 +6,11 @@
 #         self.next = next
 class Solution:
     def removeZeroSumSublists(self, head: Optional[ListNode]) -> Optional[ListNode]:
-            s = 0
+            s = 0 
             d = {0: ListNode(0, head)}
             anchor = d[0]
             stack = [(0,anchor)]
-            while head:
+            while head: 
                 s += head.val
                 if s in d:
                     d[s].next = head.next
