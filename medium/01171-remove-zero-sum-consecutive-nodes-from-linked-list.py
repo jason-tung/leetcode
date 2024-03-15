@@ -24,5 +24,4 @@ class Solution:
                     d[s] = head
                 head = head.next
             return anchor.next
-# test
                 
