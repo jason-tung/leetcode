@@ -4,6 +4,7 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+class Solution:
     def removeZeroSumSublists(self, head: Optional[ListNode]) -> Optional[ListNode]:
             s = 0 
             d = {0: ListNode(0, head)}
@@ -23,5 +24,4 @@
                     d[s] = head
                 head = head.next
             return anchor.next
-class Solution:
                 
