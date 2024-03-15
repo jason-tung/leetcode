@@ -30,3 +30,7 @@ class Solution:
                 else:
                     stack.append((s,head))
                     d[s] = head
+                head = head.next
+                # printListNode(anchor)
+            return anchor.next
+                
