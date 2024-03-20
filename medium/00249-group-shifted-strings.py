@@ -1,10 +1,9 @@
 # https://leetcode.com/problems/group-shifted-strings/
 def toRepresentation(s):
     rep = []
-    prev = 0
-    m = ord(s[0])
+    prev = ord(s[0])
     for char in s:
-        o = ord(char) - m
+        o = ord(char)
         rep.append((o - prev)%26)
         prev = o
     return tuple(rep)
