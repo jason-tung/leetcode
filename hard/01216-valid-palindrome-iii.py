@@ -1,15 +1,16 @@
 # https://leetcode.com/problems/valid-palindrome-iii/
-def solve(s, i, j, k, d):
+# top down memo
+def solve(s, i, j, d):
     if i >= j:
-        return True
-    if (i, j, k) in d:
-        return d[(i,j,k)]
+        return 0
+    if (i, j) in d:
+        return d[(i,j)]
     if s[i] != s[j]:
-        d[(i,j,k)] =  k > 0 and (solve(s, i+1, j, k - 1, d) or solve(s, i, j-1, k-1, d))
+        d[(i,j)] = min((solve(s, i+1, j, d), solve(s, i, j-1, d))) + 1
     else:
-        d[(i,j,k)] = solve(s, i+1, j-1, k, d)
-    return d[(i,j,k)]
+        d[(i,j)] = solve(s, i+1, j-1, d)
+    return d[(i,j)]
 class Solution:
     def isValidPalindrome(self, s: str, k: int) -> bool:
         d = {}
-        return solve(s, 0, len(s) - 1, k, d)
+        return solve(s, 0, len(s) - 1, d) <= k
