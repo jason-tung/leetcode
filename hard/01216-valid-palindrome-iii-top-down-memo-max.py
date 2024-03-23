@@ -15,5 +15,4 @@ class Solution:
     def isValidPalindrome(self, s: str, k: int) -> bool:
         d = {}
         r = solve(s, 0, len(s) - 1, k, d)
-        print(d)
         return r >= 0
