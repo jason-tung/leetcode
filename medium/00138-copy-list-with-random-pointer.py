@@ -10,22 +10,18 @@ class Node:
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         d = {}
-        if not head:
+        def getOrCreate(node):
+            if node:
+                if node not in d:
+                    new = Node(node.val)
+                    d[node] = new
+                return d[node]
             return None
-        dupe = Node(0)
-        anchor = dupe
+        other = Node(0)
+        anchor = other
         while head:
-            if head in d:
-                dupe.next = d[head]
-            else:
-                dupe.next = Node(head.val)
-                d[head] = dupe.next
-            dupe = dupe.next
-            if head.random != None:
-                if head.random in d:
-                    dupe.random = d[head.random]
-                else:
-                    dupe.random = Node(head.random.val)
-                    d[head.random] = dupe.random
+            other.next = getOrCreate(head)
+            other = other.next
+            other.random = getOrCreate(head.random)
             head = head.next
         return anchor.next
