@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/add-one-row-to-tree/?envType=daily-question&envId=2024-04-16
+# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
@@ -22,4 +23,3 @@ class Solution:
         else:
             self.helper(node.left, node, curdep+1) if node.left else 0
             self.helper(node.right, node, curdep+1) if node.right else 0
-# Definition for a binary tree node.
