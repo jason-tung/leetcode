@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/find-all-groups-of-farmland/?envType=daily-question&envId=2024-04-20
+# https://leetcode.com/problems/find-all-groups-of-farmland/submissions/1237200925/?envType=daily-question&envId=2024-04-20
     def findFarmland(self, land: List[List[int]]) -> List[List[int]]:
 class Solution:
         ret = []
@@ -7,7 +7,6 @@ class Solution:
         ni,nj = d[0] + i,d[1] + j
     land[i][j] = 2
     for d in dirs:
-    print(coord, i, j)
     coord[2:] = [max(i, coord[2]), max(j, coord[3])]
 def dfs(land, i, j, coord):
 dirs = [[0,1],[1,0]]
